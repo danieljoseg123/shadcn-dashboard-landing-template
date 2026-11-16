@@ -1,87 +1,31 @@
 /**
- * Elementos de marca de Miura Holdings, dibujados en SVG.
+ * Elementos de marca de Miura Holdings.
  *
- * - Logo (MIURA con astas) y símbolo (M con astas): reconstruidos a partir de
- *   la geometría del Brand Book (V de la M al 68% de la altura, astas más anchas
- *   que la letra, terminales redondeados).
- * - Toro: trazo de línea fina. Si existe el archivo vectorial original del toro,
- *   basta con reemplazar el contenido de <Bull />.
+ * - Logo (MIURA con astas + HOLDINGS) y símbolo (M con astas): trazos vectorizados
+ *   del Brand Book. Regla de marca: donde dice MIURA no va la M sola, y viceversa.
+ * - Oro solo sobre oscuro; sobre claro, Oro Profundo o Navy.
  */
 import type { SVGProps } from "react"
+import { LOGO_PATH, LOGO_VIEWBOX, SYMBOL_PATH, SYMBOL_VIEWBOX } from "./logo-paths"
 
 const GOLD = "#C9A268"
-
-/* ---------- Geometría compartida del logo ---------- */
-const HORNS = "M-53 -218 C-42 -130 40 -85 166 -85 C292 -85 374 -130 385 -218"
-const LETTER_M = "M0 275 V0 L165 187 L330 0 V275"
-const LETTERS_IURA = [
-  "M555 0 V275",
-  "M782 0 V146 A129 129 0 0 0 1040 146 V0",
-  "M1265 275 V0 H1382 C1448 0 1495 35 1495 77.5 C1495 120 1448 155 1382 155 H1265 M1372 155 L1490 275",
-  "M1690 275 L1828 0 L1966 275 M1740 175 H1916",
-]
 
 type MarkProps = SVGProps<SVGSVGElement> & { color?: string; title?: string }
 
 /** Símbolo: la M con astas. Solo donde la palabra no cabe. */
-export function Monogram({ color = "#C2A684", title = "Miura", ...props }: MarkProps) {
+export function Monogram({ color = GOLD, title = "Miura", ...props }: MarkProps) {
   return (
-    <svg viewBox="-70 -235 525 527" role="img" aria-label={title} {...props}>
-      <g fill="none" stroke={color} strokeWidth={16} strokeLinecap="round" strokeLinejoin="round">
-        <path d={HORNS} />
-        <path d={LETTER_M} />
-      </g>
+    <svg viewBox={SYMBOL_VIEWBOX} role="img" aria-label={title || undefined} {...props}>
+      <path fill={color} fillRule="evenodd" d={SYMBOL_PATH} />
     </svg>
   )
 }
 
-/** Logotipo: MIURA con astas sobre la M. */
-export function Wordmark({ color = GOLD, title = "Miura", ...props }: MarkProps) {
+/** Logotipo completo: MIURA con astas sobre la M, y HOLDINGS. */
+export function Logo({ color = GOLD, title = "Miura Holdings", ...props }: MarkProps) {
   return (
-    <svg viewBox="-70 -235 2052 527" role="img" aria-label={title} {...props}>
-      <g fill="none" stroke={color} strokeWidth={16} strokeLinecap="round" strokeLinejoin="round">
-        <path d={HORNS} />
-        <path d={LETTER_M} />
-        {LETTERS_IURA.map((d) => (
-          <path key={d} d={d} />
-        ))}
-      </g>
-    </svg>
-  )
-}
-
-/** Toro dorado, trazo fino, sin fondo. */
-export function Bull({ color = GOLD, title = "Toro Miura", ...props }: MarkProps) {
-  return (
-    <svg viewBox="0 0 240 200" role="img" aria-label={title} {...props}>
-      <g
-        fill="none"
-        stroke={color}
-        strokeWidth={1.6}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        vectorEffect="non-scaling-stroke"
-      >
-        {/* Astas */}
-        <path d="M82 62 C58 64 30 56 18 36 C12 26 12 14 18 6 C22 18 30 32 46 40 C60 47 72 50 84 50" />
-        <path d="M158 62 C182 64 210 56 222 36 C228 26 228 14 222 6 C218 18 210 32 194 40 C180 47 168 50 156 50" />
-        {/* Testuz */}
-        <path d="M84 50 C100 44 140 44 156 50" />
-        {/* Orejas */}
-        <path d="M82 64 C68 64 54 72 46 84 C62 88 76 82 86 74" />
-        <path d="M158 64 C172 64 186 72 194 84 C178 88 164 82 154 74" />
-        {/* Cara y morro */}
-        <path d="M84 52 C82 72 88 100 96 128 C99 140 100 152 100 162 C100 176 110 182 120 182 C130 182 140 176 140 162 C140 152 141 140 144 128 C152 100 158 72 156 52" />
-        {/* Rizos del testuz */}
-        <path d="M108 56 C112 62 116 60 118 56 M122 56 C124 60 128 62 132 56 M112 66 C116 70 124 70 128 66" strokeOpacity={0.8} />
-        {/* Ojos */}
-        <path d="M94 96 C98 91 106 91 110 96 C106 99 98 99 94 96" />
-        <path d="M146 96 C142 91 134 91 130 96 C134 99 142 99 146 96" />
-        {/* Morro y ollares */}
-        <path d="M104 158 C112 154 128 154 136 158" />
-        <path d="M108 168 C110 172 114 172 116 169" />
-        <path d="M132 168 C130 172 126 172 124 169" />
-      </g>
+    <svg viewBox={LOGO_VIEWBOX} role="img" aria-label={title} {...props}>
+      <path fill={color} fillRule="evenodd" d={LOGO_PATH} />
     </svg>
   )
 }

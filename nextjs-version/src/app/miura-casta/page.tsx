@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
-import { Inter, Montserrat } from "next/font/google"
+import { Figtree } from "next/font/google"
 import {
-  Bull,
   IconCalendar,
   IconCapital,
   IconDisburse,
@@ -9,25 +8,20 @@ import {
   IconNote,
   IconReturn,
   IconTerms,
+  Logo,
   Monogram,
   Waves,
-  Wordmark,
 } from "./components/brand"
 import { InterestCalculator } from "./components/calculator"
 import { TrackRecordChart } from "./components/track-record-chart"
 import "./miura.css"
 
-const montserrat = Montserrat({
+// Brand Book: una sola familia, Figtree (Light 300, Regular 400, Medium 500).
+const figtree = Figtree({
   subsets: ["latin"],
-  weight: ["300", "500"],
+  weight: ["300", "400", "500"],
   style: ["normal"],
-  variable: "--mc-font-display",
-  display: "swap",
-})
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--mc-font-text",
+  variable: "--mc-font",
   display: "swap",
 })
 
@@ -89,18 +83,16 @@ const SUBJECT_TO = [
 
 export default function MiuraCastaPage() {
   return (
-    <div lang="es" className={`mc ${montserrat.variable} ${inter.variable}`}>
+    <div lang="es" className={`mc ${figtree.variable}`}>
       {/* 1 · PORTADA */}
       <header className="mc-cover">
         <div className="mc-cover__bar">
-          <Monogram className="mc-cover__m" />
-          <span className="mc-caps mc-caps--gold">Privado y confidencial</span>
+          <span className="mc-caps">Santo Domingo</span>
+          <span className="mc-caps">Privado y confidencial</span>
         </div>
 
         <div className="mc-cover__brand">
-          <Bull className="mc-cover__bull" />
-          <Wordmark className="mc-cover__wordmark" />
-          <span className="mc-cover__holdings">Holdings</span>
+          <Logo className="mc-cover__logo" />
           <span className="mc-rule" aria-hidden="true" />
           <p className="mc-caps mc-caps--gold">Miura Casta · Préstamo privado a tasa fija</p>
         </div>
@@ -216,15 +208,15 @@ export default function MiuraCastaPage() {
         </section>
 
         {/* 3 · DOS FLUJOS */}
-        <section className="mc-section mc-section--stone" aria-labelledby="flujos">
+        <section className="mc-section mc-section--negro" aria-labelledby="flujos">
           <div className="mc-wrap">
-            <Label>Flujos</Label>
-            <h2 id="flujos" className="mc-title">
+            <Label tone="dark">Flujos</Label>
+            <h2 id="flujos" className="mc-title mc-title--dark">
               Dos flujos, una obligación
             </h2>
             <div className="mc-flows">
               <div className="mc-flow">
-                <IconInterest />
+                <IconInterest ink="#F5F3EE" />
                 <div>
                   <p className="mc-flow__when">Periódico</p>
                   <h3 className="mc-flow__title">Interés fijo</h3>
@@ -235,7 +227,7 @@ export default function MiuraCastaPage() {
                 </div>
               </div>
               <div className="mc-flow">
-                <IconCapital />
+                <IconCapital ink="#F5F3EE" />
                 <div>
                   <p className="mc-flow__when">Al vencimiento</p>
                   <h3 className="mc-flow__title">Capital</h3>
@@ -265,17 +257,17 @@ export default function MiuraCastaPage() {
         </section>
 
         {/* 5 · CÓMO FUNCIONA */}
-        <section className="mc-section mc-section--stone" aria-labelledby="como">
+        <section className="mc-section mc-section--navy" aria-labelledby="como">
           <div className="mc-wrap">
-            <Label>Cómo funciona</Label>
-            <h2 id="como" className="mc-title">
+            <Label tone="dark">Cómo funciona</Label>
+            <h2 id="como" className="mc-title mc-title--dark">
               Cinco pasos
             </h2>
             <ol className="mc-steps">
               {STEPS.map(({ icon: Icon, title, body }, i) => (
                 <li key={title} className="mc-step">
                   <span className="mc-step__n">{String(i + 1).padStart(2, "0")}</span>
-                  <Icon />
+                  <Icon ink="#F5F3EE" />
                   <h3 className="mc-step__title">{title}</h3>
                   <p>{body}</p>
                 </li>
@@ -285,21 +277,16 @@ export default function MiuraCastaPage() {
         </section>
 
         {/* 6 · TENTADERO · TRAYECTORIA */}
-        <section className="mc-section mc-section--navy" aria-labelledby="trayectoria">
+        <section className="mc-section mc-section--negro" aria-labelledby="trayectoria">
           <div className="mc-wrap">
-            <div className="mc-tentadero__head">
-              <div>
-                <Label tone="dark">Tentadero · Trayectoria</Label>
-                <h2 id="trayectoria" className="mc-title mc-title--dark">
-                  La trayectoria, con sus caídas
-                </h2>
-                <p className="mc-intro mc-intro--dark">
-                  Trader en mercados de capitales desde 2023, con participación en la gestión de
-                  carteras institucionales de renta fija y renta variable.
-                </p>
-              </div>
-              <Bull className="mc-tentadero__bull" />
-            </div>
+            <Label tone="dark">Tentadero · Trayectoria</Label>
+            <h2 id="trayectoria" className="mc-title mc-title--dark">
+              La trayectoria, con sus caídas
+            </h2>
+            <p className="mc-intro mc-intro--dark">
+              En mercados de capitales desde 2023, con participación en la gestión de carteras
+              institucionales de renta fija y renta variable.
+            </p>
 
             <TrackRecordChart />
 
@@ -335,7 +322,7 @@ export default function MiuraCastaPage() {
 
       {/* 8 · CIERRE */}
       <footer className="mc-close">
-        <Monogram className="mc-close__m" color="#1F3548" title="" aria-hidden="true" />
+        <Monogram className="mc-close__m" color="#3A4F66" title="" aria-hidden="true" />
         <div className="mc-wrap mc-close__inner">
           <p className="mc-close__motto">
             La casta no se promete.

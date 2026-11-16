@@ -20,7 +20,7 @@ const RANGES: { key: RangeKey; label: string }[] = [
 ]
 
 const GOLD = "#C9A268"
-const STONE = "#D9D6CE"
+const PLATA = "#8C96A1"
 
 const pct = (n: number, digits = 1) =>
   `${n > 0 ? "+" : n < 0 ? "−" : ""}${Math.abs(n).toLocaleString("es-DO", {
@@ -145,12 +145,12 @@ export function TrackRecordChart() {
               type="monotone"
               dataKey="q"
               name="QQQ"
-              stroke={STONE}
-              strokeOpacity={0.7}
+              stroke={PLATA}
+              strokeOpacity={0.9}
               strokeWidth={1.5}
               strokeDasharray="5 4"
               dot={false}
-              activeDot={{ r: 4, fill: STONE, stroke: "#0B1C2E", strokeWidth: 2 }}
+              activeDot={{ r: 4, fill: PLATA, stroke: "#0A0F14", strokeWidth: 2 }}
               isAnimationActive={false}
             />
             <Line
@@ -160,7 +160,7 @@ export function TrackRecordChart() {
               stroke={GOLD}
               strokeWidth={2}
               dot={false}
-              activeDot={{ r: 4.5, fill: GOLD, stroke: "#0B1C2E", strokeWidth: 2 }}
+              activeDot={{ r: 4.5, fill: GOLD, stroke: "#0A0F14", strokeWidth: 2 }}
               isAnimationActive={false}
             />
           </LineChart>

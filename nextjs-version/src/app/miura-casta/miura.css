@@ -1,18 +1,21 @@
-/* Miura Holdings · Miura Casta — línea gráfica
-   Montserrat Light: cifras y títulos · Montserrat Medium mayúsculas: etiquetas · Inter: texto.
-   Sin cursivas. Sin rojo. El dorado solo como acento o sobre fondos oscuros. */
+/* Miura Holdings · Miura Casta — línea gráfica según el Brand Book 2026
+   Una sola familia: Figtree. Light 300 para cifras y títulos, Medium 500 en mayúsculas
+   espaciadas para etiquetas, Regular 400 para texto. Sin cursivas, sin rojo, sin degradados.
+   Negro Casta de fondo, Navy de marca, Oro en la letra (solo sobre oscuro);
+   sobre claro el oro pasa a Oro Profundo. */
 
 .mc {
-  --navy: #0b1c2e;
-  --slate: #1f3548;
-  --stone: #d9d6ce;
-  --gold: #c9a268;
-  --champagne: #c2a684;
-  --ivory: #f5f3ee;
-  --ink-2: #4a5866; /* texto secundario sobre claro (navy rebajado) */
+  --negro: #0a0f14; /* Negro Casta · fondo */
+  --navy: #0b1c2e; /* Navy · marca */
+  --gold: #c9a268; /* Oro · letra, solo sobre oscuro */
+  --ivory: #f5f3ee; /* Hueso · papel y texto sobre oscuro */
+  --pizarra: #3a4f66; /* Pizarra · líneas */
+  --plata: #8c96a1; /* Plata · texto secundario sobre negro */
+  --oro-prof: #82612f; /* Oro Profundo · el oro sobre claro */
+  --ink-2: #3a4f66; /* texto secundario sobre claro */
   --line: rgba(11, 28, 46, 0.14);
-  --display: var(--mc-font-display), "Montserrat", system-ui, sans-serif;
-  --text: var(--mc-font-text), "Inter", system-ui, sans-serif;
+  --display: var(--mc-font), "Figtree", system-ui, sans-serif;
+  --text: var(--mc-font), "Figtree", system-ui, sans-serif;
 
   font-family: var(--text);
   font-style: normal;
@@ -47,8 +50,8 @@
   font-size: 11px;
   line-height: 1.4;
 }
-.mc-caps--gold {
-  color: var(--gold);
+.mc-caps {
+  color: var(--plata);
 }
 .mc-cover__brand .mc-caps,
 .mc-display,
@@ -65,18 +68,18 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  font-size: 11px;
-  margin: 0 0 14px;
+  font-size: 12px;
+  margin: 0 0 16px;
 }
 .mc-label::before {
   content: "";
   width: 28px;
   height: 1px;
-  background: var(--gold);
+  background: currentColor;
   flex: none;
 }
 .mc-label--light {
-  color: var(--navy);
+  color: var(--oro-prof);
 }
 .mc-label--dark {
   color: var(--gold);
@@ -91,11 +94,11 @@
   margin: 0;
 }
 .mc-display {
-  font-size: clamp(34px, 6vw, 60px);
+  font-size: clamp(36px, 6.5vw, 72px);
   color: var(--ivory);
 }
 .mc-title {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(30px, 4.2vw, 44px);
   color: var(--navy);
   max-width: 22ch;
 }
@@ -108,14 +111,14 @@
   color: var(--ink-2);
 }
 .mc-intro--dark {
-  color: rgba(245, 243, 238, 0.78);
+  color: var(--plata);
 }
 
 /* ---------- 1 · Portada ---------- */
 .mc-cover {
   position: relative;
   min-height: 100svh;
-  background: var(--navy);
+  background: var(--negro);
   color: var(--ivory);
   display: flex;
   flex-direction: column;
@@ -128,36 +131,22 @@
   align-items: center;
   gap: 16px;
 }
-.mc-cover__m {
-  width: 30px;
-  height: auto;
-}
 .mc-cover__brand {
-  margin: clamp(36px, 8vh, 80px) auto 0;
+  margin: clamp(56px, 13vh, 130px) auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
 }
-.mc-cover__bull {
-  width: clamp(120px, 22vw, 180px);
+.mc-cover__logo {
+  width: clamp(240px, 58vw, 520px);
   height: auto;
-  margin-bottom: clamp(18px, 3vh, 30px);
+  /* centra la palabra MIURA, no la caja: las astas sobresalen a la izquierda de la M */
+  transform: translateX(-1.3%);
 }
-.mc-cover__wordmark {
-  width: clamp(200px, 46vw, 400px);
-  height: auto;
-}
-.mc-cover__holdings {
-  font-family: var(--display);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  margin-right: -0.5em;
-  font-size: clamp(10px, 1.6vw, 13px);
+.mc-cover__brand .mc-caps {
   color: var(--gold);
-  margin-top: 14px;
 }
 .mc-rule {
   display: block;
@@ -172,10 +161,11 @@
   max-width: 720px;
 }
 .mc-lead {
-  margin: 18px auto 0;
+  margin: 20px auto 0;
   max-width: 52ch;
-  color: rgba(245, 243, 238, 0.8);
-  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--plata);
+  font-size: clamp(17px, 2vw, 24px);
+  line-height: 1.45;
 }
 .mc-cover__waves {
   display: block;
@@ -193,8 +183,9 @@
 .mc-section--ivory {
   background: var(--ivory);
 }
-.mc-section--stone {
-  background: var(--stone);
+.mc-section--negro {
+  background: var(--negro);
+  color: var(--ivory);
 }
 .mc-section--navy {
   background: var(--navy);
@@ -209,7 +200,7 @@
   margin-top: 44px;
 }
 .mc-card {
-  background: #fff;
+  background: transparent;
   border: 1px solid var(--line);
   border-top: 2px solid var(--navy);
   padding: clamp(24px, 4vw, 40px);
@@ -222,7 +213,7 @@
   text-transform: uppercase;
   letter-spacing: 0.3em;
   font-size: 12px;
-  color: var(--navy);
+  color: var(--oro-prof);
   margin: 0;
   display: flex;
   align-items: center;
@@ -232,7 +223,7 @@
   content: "";
   width: 20px;
   height: 1px;
-  background: var(--gold);
+  background: currentColor;
 }
 .mc-card__title {
   font-family: var(--display);
@@ -244,7 +235,7 @@
 .mc-card__quote {
   margin: 14px 0 0;
   color: var(--ink-2);
-  border-left: 1px solid var(--gold);
+  border-left: 1px solid var(--oro-prof);
   padding-left: 14px;
   font-size: 15px;
 }
@@ -302,7 +293,7 @@
   top: 0.8em;
   width: 10px;
   height: 1px;
-  background: var(--gold);
+  background: var(--oro-prof);
 }
 .mc-formula {
   font-family: var(--display);
@@ -341,7 +332,7 @@
 }
 .mc-isnot {
   margin-top: 22px;
-  background: var(--ivory);
+  background: rgba(11, 28, 46, 0.045);
   border-left: 2px solid var(--navy);
   padding: 16px 18px;
   font-size: 15px;
@@ -398,7 +389,7 @@
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  background: var(--ivory);
+  background: var(--navy);
   padding: clamp(22px, 3.5vw, 34px);
   border-bottom: 2px solid var(--gold);
 }
@@ -407,7 +398,7 @@
 }
 .mc-flow p {
   margin: 8px 0 0;
-  color: var(--ink-2);
+  color: var(--plata);
 }
 .mc-flow__when {
   font-family: var(--display);
@@ -416,7 +407,7 @@
   letter-spacing: 0.2em;
   font-size: 11px;
   margin: 0 !important;
-  color: var(--navy) !important;
+  color: var(--gold) !important;
 }
 .mc-flow__title {
   font-family: var(--display);
@@ -428,7 +419,7 @@
 /* ---------- 4 · Calculadora ---------- */
 .mc-calc {
   margin-top: 36px;
-  background: #fff;
+  background: transparent;
   border: 1px solid var(--line);
   padding: clamp(18px, 3.5vw, 36px);
 }
@@ -476,7 +467,7 @@
   font-size: 15px;
   font-variant-numeric: tabular-nums;
   border: 1px solid var(--line);
-  background: var(--ivory);
+  background: transparent;
   color: var(--navy);
   padding: 8px 14px;
   min-height: 40px;
@@ -511,7 +502,7 @@
   display: flex;
   align-items: center;
   border: 1px solid var(--line);
-  background: var(--ivory);
+  background: rgba(11, 28, 46, 0.03);
   min-height: 44px;
 }
 .mc-input:focus-within {
@@ -547,8 +538,11 @@
 .mc .mc-chip:focus-visible,
 .mc .mc-segmented button:focus-visible,
 .mc .mc-table-wrap:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--oro-prof);
   outline-offset: 2px;
+}
+.mc .mc-segmented--dark button:focus-visible {
+  outline-color: var(--gold);
 }
 
 .mc-calc__summary {
@@ -560,7 +554,7 @@
   margin: 32px 0 0;
 }
 .mc-calc__summary > div {
-  background: #fff;
+  background: var(--ivory);
   padding: 18px 18px 16px;
   display: flex;
   flex-direction: column;
@@ -628,7 +622,7 @@
   text-align: right;
 }
 .mc-table tr.is-final td {
-  background: var(--ivory);
+  background: rgba(11, 28, 46, 0.045);
   font-weight: 500;
 }
 .mc-table tfoot td {
@@ -682,7 +676,7 @@
   left: 34px;
   right: 0;
   height: 1px;
-  background: rgba(11, 28, 46, 0.25);
+  background: rgba(245, 243, 238, 0.18);
 }
 .mc-step:last-child::before {
   display: none;
@@ -694,8 +688,8 @@
   font-weight: 300;
   font-size: 14px;
   font-variant-numeric: tabular-nums;
-  color: var(--navy);
-  background: var(--stone);
+  color: var(--gold);
+  background: var(--navy);
   padding-right: 10px;
   margin-bottom: 18px;
 }
@@ -711,27 +705,15 @@
 }
 .mc-step p {
   margin: 0;
-  font-size: 14.5px;
-  color: var(--ink-2);
+  font-size: 15px;
+  color: var(--plata);
 }
 
 /* ---------- 6 · Tentadero ---------- */
-.mc-tentadero__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
-}
-.mc-tentadero__bull {
-  width: clamp(110px, 16vw, 170px);
-  height: auto;
-  flex: none;
-  opacity: 0.9;
-}
 .mc-track {
   margin-top: 40px;
-  border: 1px solid rgba(245, 243, 238, 0.12);
-  background: var(--slate);
+  border: 1px solid rgba(245, 243, 238, 0.1);
+  background: var(--navy);
   padding: clamp(16px, 3vw, 28px);
 }
 .mc-track__head {
@@ -759,8 +741,7 @@
   display: inline-block;
 }
 .mc-legend__swatch--dashed {
-  background: repeating-linear-gradient(90deg, var(--stone) 0 5px, transparent 5px 9px);
-  opacity: 0.8;
+  background: repeating-linear-gradient(90deg, var(--plata) 0 5px, transparent 5px 9px);
 }
 .mc-segmented--dark {
   flex-wrap: nowrap;
@@ -775,7 +756,7 @@
   border-color: rgba(245, 243, 238, 0.5);
 }
 .mc-segmented--dark button[aria-pressed="true"] {
-  background: var(--navy);
+  background: var(--negro);
   color: var(--gold);
   border-color: var(--gold);
   box-shadow: none;
@@ -785,7 +766,7 @@
   margin-top: 20px;
 }
 .mc-tooltip {
-  background: var(--navy);
+  background: var(--negro);
   border: 1px solid rgba(201, 162, 104, 0.4);
   padding: 10px 12px;
   font-size: 13px;
@@ -818,7 +799,7 @@
   display: inline-block;
 }
 .mc-tooltip__row i.dashed {
-  background: repeating-linear-gradient(90deg, var(--stone) 0 4px, transparent 4px 7px);
+  background: repeating-linear-gradient(90deg, var(--plata) 0 4px, transparent 4px 7px);
 }
 .mc-metrics {
   display: grid;
@@ -829,7 +810,7 @@
   margin: 24px 0 0;
 }
 .mc-metrics > div {
-  background: var(--navy);
+  background: var(--negro);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -855,12 +836,12 @@
 }
 .mc-metrics span {
   font-size: 12.5px;
-  color: rgba(245, 243, 238, 0.6);
+  color: var(--plata);
 }
 .mc-track__source {
   margin: 16px 0 0;
   font-size: 12.5px;
-  color: rgba(245, 243, 238, 0.6);
+  color: var(--plata);
 }
 .mc-callout {
   display: flex;
@@ -900,7 +881,7 @@
   grid-row: span 2;
   width: 14px;
   height: 1px;
-  background: var(--gold);
+  background: var(--oro-prof);
   margin-top: 0.75em;
 }
 .mc-subject dt {
@@ -930,6 +911,7 @@
   bottom: -12%;
   width: clamp(320px, 52vw, 640px);
   height: auto;
+  opacity: 0.55;
   pointer-events: none;
 }
 .mc-close__inner {
@@ -960,7 +942,7 @@
   border-top: 1px solid rgba(245, 243, 238, 0.14);
   font-size: 12.5px;
   line-height: 1.6;
-  color: rgba(245, 243, 238, 0.6);
+  color: var(--plata);
   max-width: 90ch;
 }
 
@@ -981,7 +963,7 @@
     grid-template-columns: 44px 1fr;
     column-gap: 18px;
     padding: 20px 0;
-    border-top: 1px solid rgba(11, 28, 46, 0.2);
+    border-top: 1px solid rgba(245, 243, 238, 0.14);
   }
   .mc-step::before {
     display: none;
@@ -1022,10 +1004,6 @@
   }
   .mc-metrics > div:first-child {
     grid-column: 1 / -1;
-  }
-  .mc-tentadero__head {
-    flex-direction: column-reverse;
-    align-items: flex-start;
   }
   .mc-band__inner {
     align-items: flex-start;
