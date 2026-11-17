@@ -254,7 +254,6 @@ tr.sel td{background:rgba(11,28,46,.05);font-weight:500}
 .faq details p{margin:0 0 18px;color:var(--pizarra);font-size:15px;max-width:60ch}
 
 /* ---------- Contacto + pie ---------- */
-.cta .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:end}
 .cta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
 .cta-alt{margin:0;color:var(--plata);font-size:15px;text-align:right;max-width:40ch;justify-self:end}
 footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:1px solid var(--line-dark)}
@@ -262,6 +261,36 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 .sign{margin:32px 0 0;font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--oro)}
 .legal{margin:clamp(48px,7vw,88px) 0 0;padding-top:22px;border-top:1px solid var(--line-dark);font-size:12.5px;color:var(--plata);max-width:96ch}
 .foot-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--plata)}
+
+
+/* Hero de marca */
+.hero{min-height:calc(100svh - 68px);display:flex;align-items:center}
+.hero .wrap{width:100%;grid-template-columns:1.4fr .8fr;align-items:end}
+.hero .display{font-size:clamp(52px,9vw,112px)}
+.hero-side{display:flex;justify-content:flex-end;padding-bottom:12px}
+.hero-side .hero-motto{margin:0;font-size:clamp(18px,1.8vw,22px)}
+/* Producto */
+.prod-fig{margin:18px 0 0!important;font-weight:300;font-size:clamp(40px,4.4vw,52px)!important;line-height:1;color:var(--oro)!important;letter-spacing:-.02em}
+.prod h3{margin-top:12px}
+.sheet{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);margin-top:24px;border:1px solid var(--line-dark);padding:clamp(24px,3vw,36px)}
+.sheet-list{margin:0;display:grid;grid-template-columns:1fr 1fr;column-gap:32px}
+.sheet-list div{padding:12px 0;border-top:1px solid var(--line-dark)}
+.sheet-list dt{font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--plata)}
+.sheet-list dd{margin:4px 0 0;font-size:15.5px}
+/* Cierre */
+.cta-inner{text-align:center;display:flex;flex-direction:column;align-items:center}
+.cta-inner .label{justify-content:center}
+.cta-inner .label::after{content:"";width:28px;height:1px;background:currentColor;flex:none}
+.cta-title{font-weight:300;font-size:clamp(32px,5vw,56px);line-height:1.12;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.cta-rule{display:block;width:56px;height:1px;background:var(--oro);margin:32px 0 6px}
+.cta-inner .lead{margin-left:auto;margin-right:auto}
+.cta-inner .cta-actions{justify-content:center;margin-top:32px}
+.cta-inner .cta-alt{text-align:center;justify-self:auto;max-width:44ch;color:rgba(245,243,238,.78);font-size:16px}
+@media (max-width:860px){
+  .hero{min-height:auto}
+  .hero-side{justify-content:flex-start}
+  .sheet,.sheet-list{grid-template-columns:1fr}
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1020px){
@@ -328,37 +357,27 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <li><a href="#preguntas">Preguntas</a></li>
       </ul>
     </nav>
-    <a class="btn btn-gold" href="#contacto">Conversemos</a>
+    <a class="btn btn-gold" href="#contacto">Contacto</a>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"><span></span><b class="sr">Menú</b></button>
   </div>
 </header>
 
 <main>
-<!-- ============ HERO ============ -->
+<!-- ============ HERO · MIURA ============ -->
 <section class="hero s-negro" id="inicio">
   <div class="wrap">
     <div>
-      <p class="label eyebrow">Miura Casta · Préstamo privado</p>
-      <h1 class="display"><span class="gold">12% anual fijo,</span><br>en dólares.</h1>
-      <p class="lead">Usted presta capital en dólares a Daniel Gómez mediante un pagaré notarial. Recibe intereses fijos cada 90, 120 o 180 días y el capital íntegro al vencimiento, sin importar cómo le vaya a la inversión.</p>
+      <p class="label eyebrow">Miura Holdings · Santo Domingo</p>
+      <h1 class="display"><span class="gold">Conviction</span><br>over noise.</h1>
+      <p class="lead">Miura Holdings invierte capital propio en los mercados de capitales de Estados Unidos. Pocas ideas, bien entendidas, sostenidas con disciplina cuando el resto reacciona.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#calculadora">Calcular mi plan</a>
-        <a class="btn btn-line" href="#como-funciona">Cómo funciona</a>
+        <a class="btn btn-gold" href="#producto">Conocer Miura Casta</a>
+        <a class="btn btn-line" href="#miura">Nuestra filosofía</a>
       </div>
+    </div>
+    <div class="hero-side">
       <p class="hero-motto"><span>La casta no se promete.<br><span class="gold">Se demuestra.</span></span></p>
     </div>
-
-    <aside class="facts" aria-label="Ficha del préstamo">
-      <div class="facts-head"><span class="caps" style="color:var(--plata)">Ficha</span><span class="caps gold">Privado y confidencial</span></div>
-      <div class="facts-rate"><b class="num">12%</b><span>Interés fijo anual sobre el capital prestado, en USD</span></div>
-      <dl>
-        <div><dt>Planes</dt><dd class="num">US$33,200 · 50,000 · 75,000</dd></div>
-        <div><dt>Pago de intereses</dt><dd>Cada 90, 120 o 180 días</dd></div>
-        <div><dt>Capital</dt><dd>Íntegro al vencimiento</dd></div>
-        <div><dt>Documento</dt><dd>Pagaré notarial</dd></div>
-        <div><dt>Disponibilidad</dt><dd class="gold">Una sola posición</dd></div>
-      </dl>
-    </aside>
   </div>
 </section>
 
@@ -368,18 +387,16 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
     <div class="sec-head">
       <div>
         <p class="label">Qué es Miura</p>
-        <h2 class="title">Conviction over noise.</h2>
+        <h2 class="title">Pocas ideas, bien sostenidas.</h2>
       </div>
       <p class="lead">El mercado premia a quien sostiene una tesis cuando todos los demás reaccionan. Miura existe para eso.</p>
     </div>
 
     <div class="about">
       <div>
-        <p class="big">Miura Holdings es la marca bajo la que Daniel Gómez invierte su propio capital desde Santo Domingo.</p>
-        <p>Nace sobre tres principios: disciplina, entendimiento y transparencia. Pocas ideas, bien sostenidas. El capital se invierte por cuenta propia en acciones de Estados Unidos, con reglas de riesgo escritas antes de entrar y respetadas al salir.</p>
-        <p>El nombre viene de la ganadería Miura: el hierro certifica el origen. Lo que lleva el nombre Miura, Miura lo responde.</p>
-        <p><strong style="font-weight:500">Miura Casta</strong> es la forma de participar como prestamista: un préstamo personal a tasa fija, con una sola obligación de pago.</p>
-        <div class="isnt"><strong>Lo que no es.</strong> Miura Holdings es una marca, no una sociedad constituida. No es un fondo ni administra capital de terceros: el prestamista es acreedor de una obligación fija, no socio ni participante en resultados.</div>
+        <p class="big">Miura Holdings nace en Santo Domingo sobre tres principios: disciplina, entendimiento y transparencia.</p>
+        <p>Invierte en acciones de Estados Unidos con pocas posiciones, bien estudiadas, y reglas de riesgo escritas antes de entrar y respetadas al salir. Cada operación queda registrada y el rendimiento se puede verificar.</p>
+        <p>El nombre viene de la ganadería Miura, donde el hierro certifica el origen. Lo que lleva el nombre Miura, Miura lo responde.</p>
       </div>
       <div>
         <p class="label" style="margin-bottom:14px">The MIURA Standard</p>
@@ -395,62 +412,54 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   </div>
 </section>
 
-<!-- ============ PRODUCTO ============ -->
+<!-- ============ MIURA CASTA ============ -->
 <section class="s-navy" id="producto">
   <div class="wrap">
     <div class="sec-head">
       <div>
         <p class="label">Miura Casta</p>
-        <h2 class="title">Qué recibe usted como prestamista</h2>
+        <h2 class="title">Un préstamo privado para inversión</h2>
       </div>
-      <p class="lead">Un préstamo en dólares con interés fijo. Su remuneración es solo el interés pactado: no depende de los resultados de la inversión, ni a favor ni en contra.</p>
+      <p class="lead">Usted presta capital en dólares que Miura destina a inversión en acciones de Estados Unidos. A cambio recibe un interés fijo, pagado de forma periódica, y su capital íntegro al vencimiento.</p>
     </div>
 
     <div class="prod">
       <article>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M38 20 A15 15 0 0 0 11 15"/><path d="M10 28 A15 15 0 0 0 37 33"/><path d="M11 8 V15 H18"/><path d="M37 40 V33 H30"/><circle class="a" cx="24" cy="24" r="3.2"/></svg>
-        <h3>Interés fijo periódico</h3>
-        <p>12% anual sobre el capital prestado, pagado cada 90, 120 o 180 días según lo que se pacte.</p>
+        <p class="prod-fig num">12%</p>
+        <h3>Interés fijo anual</h3>
+        <p>Pactado desde el primer día y pagado cada 90, 120 o 180 días, con independencia de los resultados de la inversión.</p>
       </article>
       <article>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17 L24 8 L40 17 Z"/><path d="M13 21 V35 M20 21 V35 M28 21 V35 M35 21 V35"/><path class="a" d="M7 40 H41"/></svg>
-        <h3>Capital íntegro</h3>
-        <p>Se devuelve completo al vencimiento, junto con el último pago de intereses. No se amortiza durante el plazo.</p>
+        <p class="prod-fig">Íntegro</p>
+        <h3>Capital al vencimiento</h3>
+        <p>Se devuelve completo al final del plazo, junto con el último pago de intereses.</p>
       </article>
       <article>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 H40 V36 H8 Z"/><path d="M13 19 H27 M13 25 H24"/><circle class="a" cx="33" cy="28" r="4.5"/><path class="a" d="M31 32 L30 38 L33 36 L36 38 L35 32"/></svg>
-        <h3>Respaldo legal</h3>
-        <p>La obligación se formaliza en un pagaré notarial, con la garantía que se acuerde.</p>
+        <p class="prod-fig">Notarial</p>
+        <h3>Pagaré y garantía</h3>
+        <p>Cada préstamo se formaliza en un pagaré ante notario, con la garantía que se acuerde.</p>
       </article>
     </div>
 
-    <div class="terms">
-      <div class="term-card">
+    <div class="sheet">
+      <div class="sheet-intro">
         <p class="label">Hierro · Los términos</p>
         <p class="quote">El hierro certifica el origen: lo que lleva el nombre Miura, Miura lo responde.</p>
-        <dl style="margin-top:22px">
-          <div><dt>Tasa</dt><dd>12% anual fijo, en USD</dd></div>
-          <div><dt>Planes</dt><dd class="num">US$33,200 · US$50,000 · US$75,000</dd></div>
-          <div><dt>Intereses</dt><dd>Cada 90, 120 o 180 días</dd></div>
-          <div><dt>Base de cálculo</dt><dd>ACT/360 (días reales ÷ 360), ajustable a lo que se pacte</dd></div>
-          <div><dt>Capital</dt><dd>Íntegro al vencimiento, sin amortización</dd></div>
-          <div><dt>Fórmula</dt><dd class="num">Interés = Capital × 12% × (Días ÷ 360)</dd></div>
-        </dl>
       </div>
-      <div class="term-card">
-        <p class="label">Naturaleza · El préstamo</p>
-        <dl>
-          <div><dt>Prestatario</dt><dd>Daniel Gómez, persona física</dd></div>
-          <div><dt>Prestamista</dt><dd>Un único acreedor</dd></div>
-          <div><dt>Documento</dt><dd>Pagaré notarial</dd></div>
-          <div><dt>Destino</dt><dd>Inversión por cuenta propia en acciones de EE. UU.; una parte puede destinarse a saldar el financiamiento del vehículo ofrecido en garantía</dd></div>
-          <div><dt>Obligación</dt><dd>Intereses y capital se pagan con independencia de los resultados de la inversión</dd></div>
-          <div><dt>Acceso</dt><dd>El prestamista no participa en resultados, no es dueño de activos y no tiene acceso a la cuenta</dd></div>
-        </dl>
-      </div>
+      <dl class="sheet-list">
+        <div><dt>Planes</dt><dd class="num">US$33,200 · US$50,000 · US$75,000</dd></div>
+        <div><dt>Moneda</dt><dd>Dólares estadounidenses</dd></div>
+        <div><dt>Pago de intereses</dt><dd>Cada 90, 120 o 180 días</dd></div>
+        <div><dt>Base de cálculo</dt><dd class="num">Capital × tasa × (días ÷ 360)</dd></div>
+        <div><dt>Destino</dt><dd>Inversión en acciones de EE. UU.</dd></div>
+        <div><dt>Documento</dt><dd>Pagaré notarial</dd></div>
+      </dl>
     </div>
 
-    <div class="band"><p><strong>Una sola posición disponible.</strong> Miura Casta se cierra con un único prestamista.</p></div>
+    <div class="band"><p><strong>Por invitación.</strong> Miura Casta es una propuesta privada, extendida de forma personal a muy pocas personas.</p></div>
   </div>
 </section>
 
@@ -604,25 +613,24 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
     <div class="faq">
       <p class="label">Preguntas frecuentes</p>
       <h2 class="title" style="margin-bottom:32px">Lo que suele preguntarse</h2>
-      <details><summary>¿Qué pasa si la inversión pierde dinero?</summary><p>El interés y el capital se deben igual. La obligación del prestatario es fija y no depende de los resultados de la inversión.</p></details>
-      <details><summary>¿Puedo ganar más si a la inversión le va bien?</summary><p>No. Su remuneración es solo el interés fijo pactado. No hay participación en ganancias ni componente variable.</p></details>
+      <details><summary>¿Qué pasa si el mercado baja?</summary><p>Sus pagos no cambian. Los intereses y la devolución del capital son una obligación fija del pagaré, independiente de los resultados de la inversión.</p></details>
+      <details><summary>¿El interés puede cambiar durante el plazo?</summary><p>No. La tasa del 12% anual queda fijada en el pagaré desde el primer día y se mantiene hasta el vencimiento.</p></details>
       <details><summary>¿Cómo y cuándo recibo los pagos?</summary><p>Por transferencia en dólares, en cada fecha del calendario: cada 90, 120 o 180 días, según lo que se pacte. El capital llega al vencimiento con el último interés.</p></details>
-      <details><summary>¿Qué respalda el préstamo?</summary><p>Un pagaré notarial firmado por el prestatario y la garantía que se acuerde, que se detalla en el mismo documento.</p></details>
+      <details><summary>¿Qué respalda el préstamo?</summary><p>Un pagaré notarial y la garantía que se acuerde, detallada en el mismo documento.</p></details>
       <details><summary>¿Puedo recuperar el capital antes?</summary><p>Las condiciones de aviso y devolución anticipada se acuerdan y quedan escritas en el pagaré.</p></details>
       <details><summary>¿Los intereses tienen retenciones?</summary><p>Las cifras de la calculadora son brutas. Las retenciones fiscales aplicables se reflejan en el pagaré según la ley vigente.</p></details>
-      <details><summary>¿Por qué un solo prestamista?</summary><p>Miura Casta es un préstamo personal entre particulares, no una oferta abierta. Se cierra con una sola persona.</p></details>
+      <details><summary>¿Quién puede participar en Miura Casta?</summary><p>Miura Casta no se ofrece al público. Es una propuesta privada que se extiende por invitación personal y se reserva a muy pocas personas, para atender cada relación con el cuidado y el seguimiento que merece.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACTO ============ -->
+<!-- ============ CIERRE · INVITACIÓN ============ -->
 <section class="cta s-navy" id="contacto">
-  <div class="wrap">
-    <div>
-      <p class="label">Una sola posición disponible</p>
-      <h2 class="title">Conversemos las condiciones</h2>
-      <p class="lead">Monto, plazo, frecuencia y garantía se acuerdan con usted antes de redactar el pagaré.</p>
-    </div>
+  <div class="wrap cta-inner">
+    <p class="label">Miura Casta · Por invitación</p>
+    <h2 class="cta-title">Las buenas condiciones<br><span class="gold">se conversan en privado.</span></h2>
+    <span class="cta-rule" aria-hidden="true"></span>
+    <p class="lead">Monto, plazo y calendario de pagos se definen con usted, con calma, antes de redactar el pagaré.</p>
     <div class="cta-actions" id="ctaActions"></div>
   </div>
 </section>
@@ -633,7 +641,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   <div class="wrap">
     <p class="motto">La casta no se promete.<br><span class="gold">Se demuestra.</span></p>
     <p class="sign">Daniel Gómez · Miura Holdings</p>
-    <p class="legal">Préstamo personal entre particulares, dirigido a un prestamista específico. No constituye oferta pública, invitación al público ni participación en un fondo. Las cifras son ilustrativas. Rendimientos pasados no garantizan resultados futuros. Todos los términos están sujetos al pagaré notarial.</p>
+    <p class="legal">Documento privado y confidencial, preparado para su destinatario. Las cifras son ilustrativas. Rendimientos pasados no garantizan resultados futuros. Todos los términos quedan sujetos al pagaré notarial.</p>
     <div class="foot-meta"><span>Santo Domingo · República Dominicana</span><span>Privado y confidencial</span></div>
   </div>
 </footer>
@@ -854,10 +862,10 @@ function renderRanges() {
 function renderContact() {
   const el = $("#ctaActions");
   const parts = [];
-  const msg = encodeURIComponent("Hola Daniel, vi la propuesta de Miura Casta y quisiera conversar las condiciones.");
+  const msg = encodeURIComponent("Hola, recibí la invitación a Miura Casta y me gustaría conversar las condiciones.");
   if (CONTACT.whatsapp) parts.push(`<a class="btn btn-gold" href="https://wa.me/${CONTACT.whatsapp}?text=${msg}" target="_blank" rel="noopener">Escribir por WhatsApp</a>`);
   if (CONTACT.email) parts.push(`<a class="btn btn-line" href="mailto:${CONTACT.email}?subject=${encodeURIComponent("Miura Casta")}&body=${msg}">Enviar un correo</a>`);
-  el.innerHTML = parts.length ? parts.join("") : `<p class="cta-alt">Responda directamente al mensaje con el que recibió este enlace.<br><span class="gold">Daniel Gómez</span></p>`;
+  el.innerHTML = parts.length ? parts.join("") : `<p class="cta-alt">Para continuar, basta con responder a la invitación con la que recibió esta página.</p>`;
 }
 
 /* ---------- Ciclo ---------- */
