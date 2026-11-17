@@ -104,7 +104,7 @@ section{padding:clamp(72px,10vw,120px) 0}
 .about p{margin:0 0 16px}
 .about .big{font-weight:300;font-size:clamp(22px,2.6vw,28px);line-height:1.35;color:var(--navy);margin-bottom:24px}
 .pillars{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-light)}
-.pillars li{display:grid;grid-template-columns:44px 150px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line-light);align-items:baseline}
+.pillars li{display:grid;grid-template-columns:44px 170px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid var(--line-light);align-items:baseline}
 .pillars .roman{font-weight:300;color:var(--oro-prof);font-size:18px}
 .pillars .name{font-weight:500;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
 .pillars .desc{color:var(--pizarra);font-size:15px}
@@ -264,6 +264,12 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 .foot-meta{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--plata)}
 
 
+/* Origen */
+.origin{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,6vw,80px);align-items:end;margin-top:clamp(56px,8vw,88px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line-light)}
+.origin-quote{margin:0;font-weight:300;font-size:clamp(30px,4.2vw,44px);line-height:1.12;letter-spacing:-.01em}
+.origin-quote span{color:var(--oro-prof)}
+.origin-text{margin:0;color:var(--pizarra);max-width:46ch}
+@media (max-width:860px){.origin{grid-template-columns:1fr}}
 /* Hero de marca */
 .hero{min-height:calc(100svh - 68px);display:flex;align-items:center}
 .hero .wrap{width:100%;grid-template-columns:1.4fr .8fr;align-items:end}
@@ -383,32 +389,38 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   </div>
 </section>
 
-<!-- ============ QUÉ ES MIURA ============ -->
+<!-- ============ QUIÉNES SOMOS ============ -->
 <section class="light" id="miura">
   <div class="wrap">
     <div class="sec-head">
       <div>
         <p class="label">Quiénes somos</p>
-        <h2 class="title">Pocas ideas, bien sostenidas.</h2>
+        <h2 class="title">El capital merece criterio.</h2>
       </div>
-      <p class="lead">El mercado premia a quien sostiene una tesis cuando todos los demás reaccionan. Miura existe para eso.</p>
+      <p class="lead">Miura Holdings nace de esa convicción y la sostiene con disciplina y responsabilidad.</p>
     </div>
 
     <div class="about">
       <div>
-        <p class="big">Nacimos en Santo Domingo sobre tres principios: disciplina, entendimiento y transparencia.</p>
-        <p>Pocas posiciones, bien estudiadas, con reglas de riesgo escritas antes de entrar. Cada operación queda registrada.</p>
+        <p class="big">Entender el negocio antes que el precio.</p>
+        <p>Hacer crecer el capital no depende solo de encontrar oportunidades. Importa más saber cuándo actuar, cuánto riesgo asumir y cómo mantener el criterio frente al ruido.</p>
+        <p>Procesos definidos, posiciones con fundamento y cifras completas, incluidas las caídas. Cada decisión se toma con capital propio, y el resultado tiene nombre y apellido.</p>
       </div>
       <div>
         <p class="label" style="margin-bottom:14px">Principios</p>
         <ol class="pillars">
-          <li><span class="roman">I</span><span class="name">Conviction</span><span class="desc">Pocas posiciones, bien entendidas, sostenidas con paciencia.</span></li>
-          <li><span class="roman">II</span><span class="name">Understanding</span><span class="desc">No se invierte en lo que no se puede explicar en una página.</span></li>
-          <li><span class="roman">III</span><span class="name">Discipline</span><span class="desc">Reglas de riesgo escritas antes de entrar, respetadas al salir.</span></li>
-          <li><span class="roman">IV</span><span class="name">Transparency</span><span class="desc">Cada operación registrada; el rendimiento, verificable.</span></li>
-          <li><span class="roman">V</span><span class="name">Accountability</span><span class="desc">Los resultados se firman con nombre, buenos o malos.</span></li>
+          <li><span class="roman">I</span><span class="name">Convicción</span><span class="desc">Pocas posiciones, bien entendidas, sostenidas con paciencia.</span></li>
+          <li><span class="roman">II</span><span class="name">Comprensión</span><span class="desc">No se invierte en lo que no se puede explicar en una página.</span></li>
+          <li><span class="roman">III</span><span class="name">Disciplina</span><span class="desc">Reglas de riesgo escritas antes de entrar, respetadas al salir.</span></li>
+          <li><span class="roman">IV</span><span class="name">Transparencia</span><span class="desc">Cada operación registrada; el rendimiento, verificable.</span></li>
+          <li><span class="roman">V</span><span class="name">Responsabilidad</span><span class="desc">Los resultados se firman con nombre, buenos o malos.</span></li>
         </ol>
       </div>
+    </div>
+
+    <div class="origin">
+      <p class="origin-quote">La bravura se hereda.<br><span>El prestigio se gana.</span></p>
+      <p class="origin-text">El nombre viene de la ganadería Miura, que cría toros bravos en la misma familia desde 1842 y es sinónimo de carácter y permanencia.</p>
     </div>
   </div>
 </section>
@@ -585,7 +597,8 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   <div class="wrap two">
     <div>
       <p class="label">Pagaré notarial</p>
-      <h2 class="title" style="margin-bottom:32px">Lo que fija el pagaré</h2>
+      <h2 class="title">El hierro se honra.</h2>
+      <p class="lead" style="margin:14px 0 32px">Lo que queda escrito en el pagaré.</p>
       <dl class="subject">
         <div><dt>Fechas y plazo</dt></div>
         <div><dt>Frecuencia</dt></div>
@@ -626,7 +639,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 <!-- ============ PIE ============ -->
 <footer>
   <div class="wrap">
-    <p class="motto">La casta no se promete.<br><span class="gold">Se demuestra.</span></p>
+    <p class="motto">La casta se demuestra<br><span class="gold">en la plaza.</span></p>
     <p class="sign">Daniel Gómez · Miura Holdings</p>
     <p class="legal">Documento privado y confidencial, preparado para su destinatario. Las cifras son ilustrativas. Rendimientos pasados no garantizan resultados futuros. Todos los términos quedan sujetos al pagaré notarial.</p>
     <div class="foot-meta"><span>Santo Domingo · República Dominicana</span><span>Privado y confidencial</span></div>
