@@ -240,9 +240,10 @@ tr.sel td{background:rgba(11,28,46,.05);font-weight:500}
 
 /* ---------- Pagaré + FAQ ---------- */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
-.subject{margin:0;border-top:1px solid var(--line-light)}
-.subject div{display:grid;grid-template-columns:20px 1fr;gap:4px 12px;padding:16px 0;border-bottom:1px solid var(--line-light)}
-.subject div::before{content:"";grid-row:span 2;width:12px;height:1px;background:var(--oro-prof);margin-top:.7em}
+.subject{margin:0}
+.subject{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}
+.subject div{display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--line-light)}
+.subject div::before{content:"";width:12px;height:1px;background:var(--oro-prof);flex:none}
 .subject dt{font-weight:500;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
 .subject dd{margin:0;color:var(--pizarra);font-size:15px}
 .faq details{border-bottom:1px solid var(--line-light)}
@@ -322,6 +323,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   .pillars li{grid-template-columns:36px 1fr}
   .pillars .desc{grid-column:2}
   .term-card dl div{grid-template-columns:1fr;gap:2px}
+  .subject{grid-template-columns:1fr}
   .metrics{grid-template-columns:1fr 1fr}
   .metrics div:first-child{grid-column:1/-1}
   .kpis dt,.metrics dt{min-height:0}
@@ -349,8 +351,8 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
     </a>
     <nav aria-label="Secciones">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#miura">Miura</a></li>
-        <li><a href="#producto">Miura Casta</a></li>
+        <li><a href="#miura">Quiénes somos</a></li>
+        <li><a href="#producto">Casta</a></li>
         <li><a href="#calculadora">Calculadora</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
         <li><a href="#trayectoria">Trayectoria</a></li>
@@ -367,11 +369,11 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 <section class="hero s-negro" id="inicio">
   <div class="wrap">
     <div>
-      <p class="label eyebrow">Miura Holdings · Santo Domingo</p>
+      <p class="label eyebrow">Santo Domingo · República Dominicana</p>
       <h1 class="display"><span class="gold">Conviction</span><br>over noise.</h1>
-      <p class="lead">Miura Holdings invierte capital propio en los mercados de capitales de Estados Unidos. Pocas ideas, bien entendidas, sostenidas con disciplina cuando el resto reacciona.</p>
+      <p class="lead">Invertimos capital propio en acciones de Estados Unidos.</p>
       <div class="hero-ctas">
-        <a class="btn btn-gold" href="#producto">Conocer Miura Casta</a>
+        <a class="btn btn-gold" href="#producto">Conocer Casta</a>
         <a class="btn btn-line" href="#miura">Nuestra filosofía</a>
       </div>
     </div>
@@ -386,7 +388,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="label">Qué es Miura</p>
+        <p class="label">Quiénes somos</p>
         <h2 class="title">Pocas ideas, bien sostenidas.</h2>
       </div>
       <p class="lead">El mercado premia a quien sostiene una tesis cuando todos los demás reaccionan. Miura existe para eso.</p>
@@ -394,12 +396,11 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 
     <div class="about">
       <div>
-        <p class="big">Miura Holdings nace en Santo Domingo sobre tres principios: disciplina, entendimiento y transparencia.</p>
-        <p>Invierte en acciones de Estados Unidos con pocas posiciones, bien estudiadas, y reglas de riesgo escritas antes de entrar y respetadas al salir. Cada operación queda registrada y el rendimiento se puede verificar.</p>
-        <p>El nombre viene de la ganadería Miura, donde el hierro certifica el origen. Lo que lleva el nombre Miura, Miura lo responde.</p>
+        <p class="big">Nacimos en Santo Domingo sobre tres principios: disciplina, entendimiento y transparencia.</p>
+        <p>Pocas posiciones, bien estudiadas, con reglas de riesgo escritas antes de entrar. Cada operación queda registrada.</p>
       </div>
       <div>
-        <p class="label" style="margin-bottom:14px">The MIURA Standard</p>
+        <p class="label" style="margin-bottom:14px">Principios</p>
         <ol class="pillars">
           <li><span class="roman">I</span><span class="name">Conviction</span><span class="desc">Pocas posiciones, bien entendidas, sostenidas con paciencia.</span></li>
           <li><span class="roman">II</span><span class="name">Understanding</span><span class="desc">No se invierte en lo que no se puede explicar en una página.</span></li>
@@ -417,10 +418,10 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <p class="label">Miura Casta</p>
+        <p class="label">Casta</p>
         <h2 class="title">Un préstamo privado para inversión</h2>
       </div>
-      <p class="lead">Usted presta capital en dólares que Miura destina a inversión en acciones de Estados Unidos. A cambio recibe un interés fijo, pagado de forma periódica, y su capital íntegro al vencimiento.</p>
+      <p class="lead">Usted presta capital en dólares para inversión en acciones de EE. UU. y recibe un interés fijo, con su capital íntegro al final.</p>
     </div>
 
     <div class="prod">
@@ -428,38 +429,35 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M38 20 A15 15 0 0 0 11 15"/><path d="M10 28 A15 15 0 0 0 37 33"/><path d="M11 8 V15 H18"/><path d="M37 40 V33 H30"/><circle class="a" cx="24" cy="24" r="3.2"/></svg>
         <p class="prod-fig num">12%</p>
         <h3>Interés fijo anual</h3>
-        <p>Pactado desde el primer día y pagado cada 90, 120 o 180 días, con independencia de los resultados de la inversión.</p>
+        <p>Pagado cada 90, 120 o 180 días, sin importar los resultados.</p>
       </article>
       <article>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17 L24 8 L40 17 Z"/><path d="M13 21 V35 M20 21 V35 M28 21 V35 M35 21 V35"/><path class="a" d="M7 40 H41"/></svg>
         <p class="prod-fig">Íntegro</p>
         <h3>Capital al vencimiento</h3>
-        <p>Se devuelve completo al final del plazo, junto con el último pago de intereses.</p>
+        <p>Se devuelve completo al final del plazo.</p>
       </article>
       <article>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 H40 V36 H8 Z"/><path d="M13 19 H27 M13 25 H24"/><circle class="a" cx="33" cy="28" r="4.5"/><path class="a" d="M31 32 L30 38 L33 36 L36 38 L35 32"/></svg>
         <p class="prod-fig">Notarial</p>
         <h3>Pagaré y garantía</h3>
-        <p>Cada préstamo se formaliza en un pagaré ante notario, con la garantía que se acuerde.</p>
+        <p>Formalizado ante notario, con la garantía que se acuerde.</p>
       </article>
     </div>
 
     <div class="sheet">
       <div class="sheet-intro">
-        <p class="label">Hierro · Los términos</p>
-        <p class="quote">El hierro certifica el origen: lo que lleva el nombre Miura, Miura lo responde.</p>
+        <p class="label">Términos</p>
       </div>
       <dl class="sheet-list">
         <div><dt>Planes</dt><dd class="num">US$33,200 · US$50,000 · US$75,000</dd></div>
         <div><dt>Moneda</dt><dd>Dólares estadounidenses</dd></div>
-        <div><dt>Pago de intereses</dt><dd>Cada 90, 120 o 180 días</dd></div>
         <div><dt>Base de cálculo</dt><dd class="num">Capital × tasa × (días ÷ 360)</dd></div>
         <div><dt>Destino</dt><dd>Inversión en acciones de EE. UU.</dd></div>
-        <div><dt>Documento</dt><dd>Pagaré notarial</dd></div>
       </dl>
     </div>
 
-    <div class="band"><p><strong>Por invitación.</strong> Miura Casta es una propuesta privada, extendida de forma personal a muy pocas personas.</p></div>
+    <div class="band"><p><strong>Por invitación.</strong> Una propuesta privada, extendida de forma personal a muy pocas personas.</p></div>
   </div>
 </section>
 
@@ -471,7 +469,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <p class="label">Calculadora</p>
         <h2 class="title">Proyecte sus pagos</h2>
       </div>
-      <p class="lead">Elija un plan o escriba otro monto, el plazo y la frecuencia de intereses. La tasa es fija: 12% anual.</p>
+      <p class="lead">Elija un plan, el plazo y la frecuencia de pago.</p>
     </div>
 
     <div class="plans" role="group" aria-label="Planes" id="plans"></div>
@@ -481,7 +479,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <div>
           <label class="field-label" for="amount">Capital a prestar</label>
           <div class="money-input"><span>US$</span><input id="amount" inputmode="numeric" autocomplete="off" aria-describedby="amountHint"></div>
-          <p class="hint" id="amountHint">Planes de US$33,200, US$50,000 o US$75,000. Otro monto se acuerda aparte.</p>
+          <p class="hint" id="amountHint">Otro monto se acuerda aparte.</p>
         </div>
         <div>
           <span class="field-label" id="termLbl">Plazo</span>
@@ -498,7 +496,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <div>
           <label class="field-label" for="date">Fecha de desembolso</label>
           <input type="date" id="date">
-          <p class="hint">Ilustrativa. La fecha real la fija el pagaré.</p>
+          <p class="hint">Ilustrativa.</p>
         </div>
       </div>
 
@@ -520,7 +518,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <div id="tabSchedule" role="tabpanel" aria-labelledby="tSchedule" class="table-wrap"></div>
         <div id="tabCompare" role="tabpanel" aria-labelledby="tCompare" class="table-wrap" hidden></div>
 
-        <p class="note">Cifras ilustrativas de intereses brutos, antes de retenciones fiscales. Interés = Capital × 12% × (Días ÷ 360). Los pagos se cuentan cada 90, 120 o 180 días desde el desembolso; el último período llega hasta el vencimiento y puede ser más corto. Con ACT/360, un año de 365 días devenga algo más que la tasa nominal (365 ÷ 360). No se ajustan días no laborables. Fechas, plazo y montos definitivos quedan sujetos al pagaré notarial.</p>
+        <p class="note">Cifras ilustrativas y brutas, antes de retenciones. Base ACT/360; el último período llega hasta el vencimiento. Términos sujetos al pagaré.</p>
       </div>
     </div>
   </div>
@@ -532,39 +530,28 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
     <div class="sec-head">
       <div>
         <p class="label">Cómo funciona</p>
-        <h2 class="title">Cinco pasos, de la conversación al vencimiento</h2>
+        <h2 class="title">Cinco pasos</h2>
       </div>
-      <p class="lead">Dos flujos de dinero hacia usted, una sola obligación del prestatario.</p>
+      <p class="lead">De la primera conversación al vencimiento.</p>
     </div>
 
     <ol class="steps" style="margin-top:56px">
       <li class="step"><span class="n num">01</span>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M13 6 H30 L37 13 V42 H13 Z"/><path d="M30 6 V13 H37"/><path d="M18 21 H31 M18 27 H31 M18 33 H25"/><path class="a" d="M27 35 L30 38 L35 32"/></svg>
-        <h3>Condiciones</h3><p>Monto, plazo y frecuencia de intereses se acuerdan directamente con usted.</p></li>
+        <h3>Condiciones</h3><p>Monto, plazo y frecuencia, a su medida.</p></li>
       <li class="step"><span class="n num">02</span>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 H40 V36 H8 Z"/><path d="M13 19 H27 M13 25 H24"/><circle class="a" cx="33" cy="28" r="4.5"/><path class="a" d="M31 32 L30 38 L33 36 L36 38 L35 32"/></svg>
-        <h3>Pagaré notarial</h3><p>Se formaliza la obligación de pago, con la garantía acordada.</p></li>
+        <h3>Pagaré notarial</h3><p>Se firma ante notario, con su garantía.</p></li>
       <li class="step"><span class="n num">03</span>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 28 V40 H40 V28"/><path class="a" d="M24 6 V30"/><path class="a" d="M17 23 L24 30 L31 23"/></svg>
-        <h3>Desembolso</h3><p>Usted transfiere el capital en dólares. Desde esa fecha corren los intereses.</p></li>
+        <h3>Desembolso</h3><p>Transfiere el capital; empiezan los intereses.</p></li>
       <li class="step"><span class="n num">04</span>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12 H40 V40 H8 Z"/><path d="M8 19 H40"/><path d="M16 7 V14 M32 7 V14"/><circle class="a" cx="30" cy="30" r="3"/></svg>
-        <h3>Intereses</h3><p>Recibe el interés fijo cada 90, 120 o 180 días, según lo pactado.</p></li>
+        <h3>Intereses</h3><p>Recibe el interés fijo en cada fecha.</p></li>
       <li class="step"><span class="n num">05</span>
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16 H32 A8 8 0 0 1 32 32 H14"/><path d="M18 10 L12 16 L18 22"/><path class="a" d="M8 40 H40"/></svg>
-        <h3>Devolución</h3><p>Al vencimiento recibe el capital íntegro junto con el último interés.</p></li>
+        <h3>Devolución</h3><p>Recibe su capital íntegro al vencimiento.</p></li>
     </ol>
-
-    <div class="flows">
-      <div class="flow">
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M38 20 A15 15 0 0 0 11 15"/><path d="M10 28 A15 15 0 0 0 37 33"/><path d="M11 8 V15 H18"/><path d="M37 40 V33 H30"/><circle class="a" cx="24" cy="24" r="3.2"/></svg>
-        <div><span class="caps gold">Periódico</span><h3>Interés fijo</h3><p>12% anual sobre el capital, en cada fecha de pago. No varía con los resultados.</p></div>
-      </div>
-      <div class="flow">
-        <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 17 L24 8 L40 17 Z"/><path d="M13 21 V35 M20 21 V35 M28 21 V35 M35 21 V35"/><path class="a" d="M7 40 H41"/></svg>
-        <div><span class="caps gold">Al vencimiento</span><h3>Capital</h3><p>Se devuelve completo, junto con el último pago de intereses.</p></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -576,7 +563,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
         <p class="label">Tentadero · Trayectoria</p>
         <h2 class="title">Donde se prueba la bravura</h2>
       </div>
-      <p class="lead">En la ganadería, el tentadero es donde se prueba la bravura antes de salir a la plaza. Aquí, la trayectoria del prestatario: en mercados de capitales desde 2023, con participación en la gestión de carteras institucionales de renta fija y renta variable.</p>
+      <p class="lead">En mercados de capitales desde 2023, con experiencia en carteras institucionales de renta fija y variable.</p>
     </div>
 
     <div class="track">
@@ -589,7 +576,7 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
       <p class="src" id="trackSrc"></p>
     </div>
 
-    <div class="callout"><p>Cuenta personal del prestatario en Interactive Brokers, mostrada como referencia de disciplina y capacidad de pago. <strong>El interés pactado no depende de estos resultados.</strong> Se muestran las caídas, no solo el máximo. No es una proyección; rendimientos pasados no garantizan resultados futuros.</p></div>
+    <div class="callout"><p>Una referencia de disciplina, con sus caídas a la vista. <strong>Su interés no depende de estos resultados.</strong> Rendimientos pasados no garantizan resultados futuros.</p></div>
   </div>
 </section>
 
@@ -598,28 +585,28 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
   <div class="wrap two">
     <div>
       <p class="label">Pagaré notarial</p>
-      <h2 class="title" style="margin-bottom:32px">Sujeto a lo que establezca el pagaré</h2>
+      <h2 class="title" style="margin-bottom:32px">Lo que fija el pagaré</h2>
       <dl class="subject">
-        <div><dt>Fechas y plazo</dt><dd>Desembolso, calendario de pagos y vencimiento.</dd></div>
-        <div><dt>Frecuencia</dt><dd>Intereses cada 90, 120 o 180 días.</dd></div>
-        <div><dt>Convención de días</dt><dd>Base de cálculo y tratamiento de días no laborables.</dd></div>
-        <div><dt>Garantía</dt><dd>Descripción y documentación del bien ofrecido en garantía.</dd></div>
-        <div><dt>Retenciones fiscales</dt><dd>Retenciones aplicables a los intereses según la ley vigente.</dd></div>
-        <div><dt>Devolución anticipada</dt><dd>Aviso previo y condiciones para devolver el capital antes del vencimiento.</dd></div>
-        <div><dt>Identificación</dt><dd>Documentos del prestamista y origen lícito de los fondos.</dd></div>
-        <div><dt>Moneda</dt><dd>Intereses y capital se pagan en dólares estadounidenses.</dd></div>
+        <div><dt>Fechas y plazo</dt></div>
+        <div><dt>Frecuencia</dt></div>
+        <div><dt>Convención de días</dt></div>
+        <div><dt>Garantía</dt></div>
+        <div><dt>Retenciones fiscales</dt></div>
+        <div><dt>Devolución anticipada</dt></div>
+        <div><dt>Identificación</dt></div>
+        <div><dt>Moneda</dt></div>
       </dl>
     </div>
     <div class="faq">
       <p class="label">Preguntas frecuentes</p>
-      <h2 class="title" style="margin-bottom:32px">Lo que suele preguntarse</h2>
+      <h2 class="title" style="margin-bottom:32px">Preguntas</h2>
       <details><summary>¿Qué pasa si el mercado baja?</summary><p>Sus pagos no cambian. Los intereses y la devolución del capital son una obligación fija del pagaré, independiente de los resultados de la inversión.</p></details>
       <details><summary>¿El interés puede cambiar durante el plazo?</summary><p>No. La tasa del 12% anual queda fijada en el pagaré desde el primer día y se mantiene hasta el vencimiento.</p></details>
       <details><summary>¿Cómo y cuándo recibo los pagos?</summary><p>Por transferencia en dólares, en cada fecha del calendario: cada 90, 120 o 180 días, según lo que se pacte. El capital llega al vencimiento con el último interés.</p></details>
       <details><summary>¿Qué respalda el préstamo?</summary><p>Un pagaré notarial y la garantía que se acuerde, detallada en el mismo documento.</p></details>
       <details><summary>¿Puedo recuperar el capital antes?</summary><p>Las condiciones de aviso y devolución anticipada se acuerdan y quedan escritas en el pagaré.</p></details>
       <details><summary>¿Los intereses tienen retenciones?</summary><p>Las cifras de la calculadora son brutas. Las retenciones fiscales aplicables se reflejan en el pagaré según la ley vigente.</p></details>
-      <details><summary>¿Quién puede participar en Miura Casta?</summary><p>Miura Casta no se ofrece al público. Es una propuesta privada que se extiende por invitación personal y se reserva a muy pocas personas, para atender cada relación con el cuidado y el seguimiento que merece.</p></details>
+      <details><summary>¿Quién puede participar?</summary><p>Casta no se ofrece al público. Se extiende por invitación personal, a muy pocas personas.</p></details>
     </div>
   </div>
 </section>
@@ -627,10 +614,10 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
 <!-- ============ CIERRE · INVITACIÓN ============ -->
 <section class="cta s-navy" id="contacto">
   <div class="wrap cta-inner">
-    <p class="label">Miura Casta · Por invitación</p>
+    <p class="label">Por invitación</p>
     <h2 class="cta-title">Las buenas condiciones<br><span class="gold">se conversan en privado.</span></h2>
     <span class="cta-rule" aria-hidden="true"></span>
-    <p class="lead">Monto, plazo y calendario de pagos se definen con usted, con calma, antes de redactar el pagaré.</p>
+    <p class="lead">Monto, plazo y calendario se definen con usted.</p>
     <div class="cta-actions" id="ctaActions"></div>
   </div>
 </section>
