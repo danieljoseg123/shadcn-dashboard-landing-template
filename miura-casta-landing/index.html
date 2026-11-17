@@ -164,6 +164,9 @@ section{padding:clamp(72px,10vw,120px) 0}
 .seg button:first-child{margin-left:0}
 .seg button:hover{border-color:var(--navy);position:relative}
 .seg button[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--hueso);box-shadow:inset 0 -2px 0 var(--oro);position:relative}
+.rate-input input{text-align:left}
+.rate-input span{padding:0 14px 0 0}
+.link-btn{background:none;border:0;padding:0;margin-left:6px;color:var(--oro-prof);text-decoration:underline;cursor:pointer;font-size:13px}
 .rate-lock{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line-light);padding:12px 14px}
 .rate-lock b{font-weight:300;font-size:24px}
 .rate-lock span{font-size:13px;color:var(--pizarra)}
@@ -506,8 +509,9 @@ footer{background:var(--negro);padding:clamp(72px,10vw,120px) 0 48px;border-top:
           <div class="seg" role="group" aria-labelledby="freqLbl" id="freqs"></div>
         </div>
         <div>
-          <span class="field-label">Tasa anual</span>
-          <div class="rate-lock"><b class="num">12%</b><span>Fija · ACT/360</span></div>
+          <label class="field-label" for="rate">Tasa anual fija</label>
+          <div class="money-input rate-input"><input id="rate" type="text" inputmode="decimal" autocomplete="off" aria-describedby="rateHint"><span>%</span></div>
+          <p class="hint" id="rateHint">Propuesta: 12%. <button type="button" class="link-btn" id="rateReset" hidden>Volver a 12%</button></p>
         </div>
         <div>
           <label class="field-label" for="date">Fecha de desembolso</label>
@@ -658,7 +662,9 @@ const CONTACT = {
   whatsapp: "",   // solo dígitos con código de país, ej. "18095551234"
   email: ""       // ej. "daniel@ejemplo.com"
 };
-const RATE = 0.12, BASIS = 360;
+const DEFAULT_RATE = 0.12, BASIS = 360;
+let RATE = DEFAULT_RATE;
+const rateLabel = () => (RATE * 100).toLocaleString("es-DO", { maximumFractionDigits: 2 }) + "%";
 const PLANS = [33200, 50000, 75000];
 const TERMS = [12, 14, 18, 24];
 const FREQS = [90, 120, 180];
@@ -716,7 +722,7 @@ function renderPlans() {
     b.innerHTML = `<span class="check" aria-hidden="true"></span>
       <span class="caps">Plan ${["I", "II", "III"][i]}</span>
       <span class="amt num">${money0(p)}</span>
-      <span class="row"><span>Interés anual (12%)</span><span class="num">${money0(p * RATE)}</span></span>
+      <span class="row"><span>Interés anual (${rateLabel()})</span><span class="num">${money0(p * RATE)}</span></span>
       <span class="row"><span>Cada ${state.freq} días</span><span class="num">${money(per)}</span></span>`;
     b.onclick = () => { state.capital = p; $("#amount").value = p.toLocaleString("en-US"); update(); };
     el.appendChild(b);
@@ -739,7 +745,7 @@ function renderResults() {
   $("#kpis").innerHTML = `
     <div><dt>Interés por pago</dt><dd>${money(s.perPeriod)}</dd><small>cada ${state.freq} días</small></div>
     <div><dt>Número de pagos</dt><dd>${s.rows.length}</dd><small>vence el ${date(s.maturity)}</small></div>
-    <div><dt>Total de intereses</dt><dd>${money(s.totalInterest)}</dd><small>en ${state.term} meses</small></div>
+    <div><dt>Total de intereses</dt><dd>${money(s.totalInterest)}</dd><small>en ${state.term} meses al ${rateLabel()}</small></div>
     <div class="hl"><dt>Total a recibir</dt><dd>${money(s.totalInterest + state.capital)}</dd><small>capital + intereses</small></div>`;
 
   // Calendario
@@ -751,7 +757,7 @@ function renderResults() {
   // Comparación de planes
   $("#tabCompare").innerHTML = `<table><thead><tr><th>Plan</th><th class="r">Capital</th><th class="r">Interés por pago</th><th class="r">Pagos</th><th class="r">Total intereses</th><th class="r">Total a recibir</th></tr></thead><tbody>${
     PLANS.map((p, i) => { const c = schedule(p, state.term, state.freq, parseISO(state.start)); return `<tr class="${p === state.capital ? "sel" : ""}"><td>Plan ${["I", "II", "III"][i]}</td><td class="r">${money0(p)}</td><td class="r">${money(c.perPeriod)}</td><td class="r">${c.rows.length}</td><td class="r">${money(c.totalInterest)}</td><td class="r">${money(c.totalInterest + p)}</td></tr>`; }).join("")
-  }</tbody></table><p class="note" style="margin-top:10px">Con plazo de ${state.term} meses, intereses cada ${state.freq} días y desembolso el ${date(parseISO(state.start))}.</p>`;
+  }</tbody></table><p class="note" style="margin-top:10px">Tasa de ${rateLabel()} anual, plazo de ${state.term} meses, intereses cada ${state.freq} días y desembolso el ${date(parseISO(state.start))}.</p>`;
 
   drawPayChart(s);
 }
@@ -887,6 +893,15 @@ function init() {
     if (v > 0 && v <= 10000000) { state.capital = v; update(); }
   });
   amt.addEventListener("blur", () => { amt.value = state.capital.toLocaleString("en-US"); });
+  const rt = $("#rate"), rr = $("#rateReset");
+  const showRate = () => { rt.value = (RATE * 100).toLocaleString("en-US", { maximumFractionDigits: 2 }); rr.hidden = RATE === DEFAULT_RATE; };
+  showRate();
+  rt.addEventListener("input", () => {
+    const v = Number(rt.value.replace(",", ".").replace(/[^\d.]/g, ""));
+    if (v > 0 && v <= 100) { RATE = v / 100; rr.hidden = RATE === DEFAULT_RATE; update(); }
+  });
+  rt.addEventListener("blur", showRate);
+  rr.addEventListener("click", () => { RATE = DEFAULT_RATE; showRate(); update(); });
   const dt = $("#date"); dt.value = state.start;
   dt.addEventListener("change", () => { if (/^\d{4}-\d{2}-\d{2}$/.test(dt.value)) { state.start = dt.value; update(); } });
 
@@ -900,7 +915,7 @@ function init() {
   links.addEventListener("click", e => { if (e.target.tagName === "A") { links.classList.remove("open"); tg.setAttribute("aria-expanded", false); } });
 
   update(); renderRanges(); renderTrack(); renderContact();
-  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { renderResults(); renderTrack(); }, 120); });
+  let resizeT; addEventListener("resize", () => { clearTimeout(resizeT); resizeT = setTimeout(() => { renderResults(); renderTrack(); }, 120); });
 }
 init();
 </script>
